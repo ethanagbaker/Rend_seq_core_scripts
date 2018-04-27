@@ -11,14 +11,14 @@
 half_width_z_score = 50;    % half width of window for averaging for peak z score
 half_width_step = 100;      % half width of window for averaging for step z score
 average_threshold = 0.25;   % average read density (read/nt) threshold for consideration
-gap_z = 2;                  % gap left out (both sides) of central position for peak z score 
-gap_step = 3;               % gap left out (both sides) of central position for step z score 
+gap_z = 2;                  % gap left out (both sides) of central position for peak z score
+gap_step = 3;               % gap left out (both sides) of central position for step z score
 
 % full path of the directory containing the wig files. Needs to be modified
 % to directory of interest
-data_dir = 'my_dir/example_data';
+data_dir = './example_data';
 
-% file name for different data series: wild card takes care of 3f, 3r, 5f, 5r (assumes that order).  
+% file name for different data series: wild card takes care of 3f, 3r, 5f, 5r (assumes that order).
 % (more can be added: files{2} = 'mydata_*.wig')
 files{1} = 'Bacillus_subtilis_WT_Rend_seq_LB_25s_frag_no_shadow_pooled_*.wig';
 
@@ -37,15 +37,15 @@ genome_size = 4215606;
 %% Example display of Rend-seq data with mRNA isoform quantification
 
 % Enter the start and end coordinates of region of interest, as well as the
-% strand. Run cell. 
+% strand. Run cell.
 
 % example: rpsP operon.
 start_region = 1671780;
 stop_region = 1676420;
-strand_region = 1;          
+strand_region = 1;
 
 % % example 2 (uncomment and run for display): qoxA operon (note that the definition is such that start<stop,
-% % even on the reverse strand). 
+% % even on the reverse strand).
 % start_region = 3914268;
 % stop_region = 3918624;
 % strand_region = 0;
@@ -59,7 +59,7 @@ z_thresh = 12;
 width_z = 3;
 
 % Genbank annotation file and directory for gene annotation. Directory
-% needs to be modified. 
+% needs to be modified.
 annotation_file = 'NC_000964.3.faa';
 annotation_dir = 'my_dir/example_data';
 
@@ -72,7 +72,7 @@ spurious_5 = [];
 spurious_3 = [];
 
 
-% identification, quantification and plot of region of interest. 
+% identification, quantification and plot of region of interest.
 [x_3, x_5, isoform_levels] = quantify_plot_isoforms_20180130(start_region,stop_region,...
     strand_region,z_thresh,width_z,z_peak_oi,data_oi,known_5,known_3,...
     spurious_5,spurious_3,genome_size,annotation_file,annotation_dir);
@@ -81,4 +81,3 @@ spurious_3 = [];
 % x_5: position of 5' ends in region of interest.
 % isoform_levels: isoform level array, entry at (i,j) equals abundance of
 %                 mRNA isoform starting at x_5(i) and ending at x_3(j).
-

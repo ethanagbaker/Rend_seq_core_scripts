@@ -11,12 +11,12 @@
 half_width_z_score = 50;    % half width of window for averaging for peak z score
 half_width_step = 100;      % half width of window for averaging for step z score
 average_threshold = 0.25;   % average read density (read/nt) threshold for consideration
-gap_z = 2;                  % gap left out (both sides) of central position for peak z score 
-gap_step = 3;               % gap left out (both sides) of central position for step z score 
+gap_z = 2;                  % gap left out (both sides) of central position for peak z score
+gap_step = 3;               % gap left out (both sides) of central position for step z score
 
 % full path of the directory containing the wig files. Needs to be modified
 % to directory of interest
-data_dir = 'my_dir/example_data';
+data_dir = './example_data';
 
 % file name for different data series: wild card takes care of 3f, 3r, 5f, 5r (assumes that order).  
 % (more can be added: files{2} = 'mydata_*.wig')
@@ -49,11 +49,10 @@ l_average = 50;     % size of region for averaving for end-enrichment calculatio
 width_around_peak = 10;
 ee_name_addition = 'end_enrichment_shadow_removal.txt';    % suffix to file name of end-enrichment file for shadow removal.
 
-% prints end-enrichment file: 
+% prints end-enrichment file:
 %       column 1: type of ends, column 2: position, column 3: end-enrichment
 print_end_enrichment_shadow_removal_20180130(files,ee_name_addition,...
     peak_positions,data,width_around_peak,l_average,genome_size);
 
 % the wigs without shadow can then be generated using the python script by:
-% python align_to_wig_no_shadow_20180130.py bowtie_align_file new_wig_name end_enrichment_file species 
-
+% python align_to_wig_no_shadow_20180130.py bowtie_align_file new_wig_name end_enrichment_file species
